@@ -12,6 +12,15 @@ app.get('/', (request, response) => {
 
 app.post('/books', async (request, response) => {
     try {
+        if (
+            !request.body.title ||
+            !request.body.author ||
+            !request.body.publishYear
+        ) {
+            return response.status(400).send({
+                message: 'Send all erquired fields: title, author, publishYear'
+            })
+        }
     } catch (error) {
         console.log(error.message);
         response.status(500).send({ message: error.message });
