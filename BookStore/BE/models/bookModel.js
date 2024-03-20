@@ -1,0 +1,1 @@
+const Book = mongooese.model('Cat', { name: String });
