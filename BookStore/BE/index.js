@@ -10,7 +10,13 @@ app.get('/', (request, response) => {
     return response.status(234).send(`First Http Route`)
 });
 
-
+app.post('/books', async (request, response) => {
+    try {
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({ message: error.message });
+    }
+});
 
 mongoose
     .connect(mongoDBURL)
@@ -22,4 +28,4 @@ mongoose
     })
     .catch((error) => {
         console.log(error)
-    })
+    });
