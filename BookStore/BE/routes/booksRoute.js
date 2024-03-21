@@ -1,5 +1,9 @@
+import express from "express";
+
+const router = express.Router();
+
 // route to save a new book
-app.post("/books", async (request, response) => {
+router.post("/books", async (request, response) => {
     try {
 
         if (
@@ -27,7 +31,7 @@ app.post("/books", async (request, response) => {
 });
 
 //route to get all books from database
-app.get("/books", async (request, response) => {
+router.get("/books", async (request, response) => {
     try {
 
         const books = await Book.find({});
@@ -43,7 +47,7 @@ app.get("/books", async (request, response) => {
 });
 
 //route for getting one book from database by id
-app.get("/books/:id", async (request, response) => {
+router.get("/books/:id", async (request, response) => {
     try {
 
         const { id } = request.params;
@@ -57,7 +61,7 @@ app.get("/books/:id", async (request, response) => {
 });
 
 //route to update a book
-app.put("/books/: id", async (request, response) => {
+router.put("/books/: id", async (request, response) => {
     try {
 
         if (
@@ -85,7 +89,7 @@ app.put("/books/: id", async (request, response) => {
 
 
 //route for deleting a book
-app.delete("/book/:id", async (request, response) => {
+router.delete("/book/:id", async (request, response) => {
     try {
 
         const { id } = request.params;
