@@ -7,11 +7,13 @@ const app = express();
 
 app.use(express.json());
 
+// middleware for parsing request body
 app.get("/", (request, response) => {
     console.log(request)
     return response.status(234).send("First Http Route")
 });
 
+// route to save a new book
 app.post("/books", async (request, response) => {
     try {
 
