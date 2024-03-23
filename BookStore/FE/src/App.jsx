@@ -6,5 +6,4 @@ const App = () => {
     <div className="bg-red-400">App</div>
   )
 }
-
 export default App;
