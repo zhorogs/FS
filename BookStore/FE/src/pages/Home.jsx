@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import spinner from "../components/spinner";
+import Spinner from "../components/spinner";
 import { Link } from "react-router-dom";
 import { AiOutlineEdit } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
@@ -30,7 +30,7 @@ const Home = () => {
                     <MdOutlineAddBox className="text-sky-800 text-4xl" />
                 </Link>
                 {loading ? (
-                    <spinner />
+                    <Spinner />
                 ) : (
                     <table className="w-full border-separate border-spacing-2">
                         <thead>
