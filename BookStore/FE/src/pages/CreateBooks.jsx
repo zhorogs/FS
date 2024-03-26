@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+
 function CreateBooks() {
     const [title, setTitle] = useState('');
-    const [author, setAutor] = useState('');
+    const [author, setAuthor] = useState('');
     const [publishYear, setPublishYear] = useState('');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
@@ -56,7 +57,7 @@ function CreateBooks() {
                     />
                 </div>
                 <div className='my-4'>
-                    <label className='text-xl mr-4 text-gray-500'>Author</label>
+                    <label className='text-xl mr-4 text-gray-500'>Publish Year</label>
                     <input
                         type='text'
                         value={publishYear}
