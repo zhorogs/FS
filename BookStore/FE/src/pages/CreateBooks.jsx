@@ -19,7 +19,9 @@ function CreateBooks() {
         };
         setLoading(true);
         axios
-            .post('http://localhost:5555/books', data)
+            .post('http://localhost:5555/books', data, {
+                headers: { 'Content-Type': 'application/json' }
+            })
             .then(() => {
                 setLoading(false);
                 navigate('/');
