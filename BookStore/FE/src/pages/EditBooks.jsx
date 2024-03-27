@@ -72,4 +72,4 @@ function EditBook() {
     )
 }
 
-export default CreateBooks
+export default EditBook
