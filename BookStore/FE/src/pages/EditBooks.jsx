@@ -35,7 +35,7 @@ function EditBook() {
         };
         setLoading(true);
         axios
-            .put('http://localhost:5555/books', data)
+            .put(`http://localhost:5555/books/${id}`, data)
             .then(() => {
                 setLoading(false);
                 navigate('/');
@@ -80,7 +80,7 @@ function EditBook() {
                         className='border-2 border-gray-500 px-4 py-2 w-full'
                     />
                 </div>
-                <button className='p-2 bg-sky-300 m-8' onClick={handleSaveBook}>
+                <button className='p-2 bg-sky-300 m-8' onClick={handleEditBook}>
                     Save
                 </button>
             </div>
