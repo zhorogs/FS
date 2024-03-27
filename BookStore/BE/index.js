@@ -1,43 +1,41 @@
-import express from "express";
-import { PORT, mongoDBURL } from "./config.js";
-import mongoose from "mongoose";
-import { Book } from "./models/bookModel.js";
-import booksRoute from "./routes/booksRoute.js";
-import cors from "cors";
+import express from 'express';
+import { PORT, mongoDBURL } from './config.js';
+import mongoose from 'mongoose';
+import booksRoute from './routes/booksRoute.js';
+import cors from 'cors';
 
 const app = express();
 
-// middleware for parsing request body
+// Middleware for parsing request body
 app.use(express.json());
 
-// middleware for handling cors policy
-// option 1 - allow all origins with default of cors(*)
+// Middleware for handling CORS POLICY
+// Option 1: Allow All Origins with Default of cors(*)
 app.use(cors());
-// option 2 - allow custom origins
-/*app.use(
-    cors({
-        origin: "https://localhost:3000",
-        methods: ["GET", "POST", "PUT", "DELETE"],
-        allowedHeaders: ["Content-Type"]
-    })
-);*/
+// Option 2: Allow Custom Origins
+// app.use(
+//   cors({
+//     origin: 'http://localhost:3000',
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     allowedHeaders: ['Content-Type'],
+//   })
+// );
 
-// first route
-app.get("/", (request, response) => {
-    console.log(request)
-    return response.status(234).send("First Http Route")
+app.get('/', (request, response) => {
+    console.log(request);
+    return response.status(234).send('First Http Route');
 });
 
-app.use("/books", booksRoute)
+app.use('/books', booksRoute);
 
 mongoose
     .connect(mongoDBURL)
     .then(() => {
-        console.log("App connected to DB")
+        console.log('App connected to database');
         app.listen(PORT, () => {
-            console.log(`App is listening on ${PORT}`)
-        })
+            console.log(`App is listening to port: ${PORT}`);
+        });
     })
     .catch((error) => {
-        console.log(error)
+        console.log(error);
     });
