@@ -11,6 +11,11 @@ function EditBook() {
     const [publishYear, setPublishYear] = useState('');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const { id } = useParams();
+    useEffect(() => {
+        setLoading(true);
+        axios.get(`http://localhost:5555/books/${id}`)
+    }, [])
     const handleSaveBook = () => {
         const data = {
             title,
