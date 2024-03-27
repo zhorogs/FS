@@ -20,22 +20,17 @@ function CreateBooks() {
         setLoading(true);
         axios
             .post('http://localhost:5555/books', data)
-            .then(response => {
+            .then(() => {
                 setLoading(false);
-                if (response.status === 200) {
-                    // Request was successful, navigate or perform other actions
-                    navigate('/');
-                } else {
-                    // Request failed, handle accordingly
-                    alert('An error occurred. Please try again.');
-                }
+                navigate('/');
             })
             .catch((error) => {
                 setLoading(false);
-                alert('An error happened. Please check console');
+                // alert('An error happened. Please Chack console');
                 console.log(error);
             });
-    }
+    };
+
     return (
         <div className='p-4'>
             <BackButton />
