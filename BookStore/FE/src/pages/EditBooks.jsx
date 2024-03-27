@@ -15,8 +15,19 @@ function EditBook() {
     useEffect(() => {
         setLoading(true);
         axios.get(`http://localhost:5555/books/${id}`)
+            .then((response) => {
+                setAuthor(response.data.author);
+                setPublishYear(response.data.publishYear);
+                setTitle(response.data.title);
+                setLoading(false);
+            })
+            .catch((error) => {
+                setLoading(false);
+                alert(`An error happened. Please check console.`)
+                console.log(error);
+            })
     }, [])
-    const handleSaveBook = () => {
+    const handleEditBook = () => {
         const data = {
             title,
             author,
@@ -24,7 +35,7 @@ function EditBook() {
         };
         setLoading(true);
         axios
-            .post('http://localhost:5555/books', data)
+            .put('http://localhost:5555/books', data)
             .then(() => {
                 setLoading(false);
                 navigate('/');
