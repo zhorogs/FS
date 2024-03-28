@@ -66,13 +66,13 @@ const Home = () => {
                                         </td>
                                         <td className="border border-slate-700 rounded-md text-center">
                                             <div className="flex justify-center gap-x-4">
-                                                <Link to={"/books/details/${book._id}"}>
+                                                <Link to={`/books/details/${book._id}`}>
                                                     <BsInfoCircle className="text-2x1 text-green-800"></BsInfoCircle>
                                                 </Link>
-                                                <Link to={"/books/edit/${book._id}"}>
+                                                <Link to={`/books/edit/${book._id}`}>
                                                     <AiOutlineEdit className="text-2x1 text-yellow-600"></AiOutlineEdit>
                                                 </Link>
-                                                <Link to="/books/delete/${book._id}">
+                                                <Link to={`/books/delete/${book._id}`}>
                                                     <MdOutlineDelete className="text-2x1 text-red-600"></MdOutlineDelete>
                                                 </Link>
                                             </div>
