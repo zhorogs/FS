@@ -16,17 +16,24 @@ function EditBook() {
         setLoading(true);
         axios.get(`http://localhost:5555/books/${id}`)
             .then((response) => {
-                setAuthor(response.data.author);
-                setPublishYear(response.data.publishYear);
-                setTitle(response.data.title);
+                const { data } = response;
+                if (data && data.title && data.author && data.publishYear) {
+                    setAuthor(data.author);
+                    setPublishYear(data.publishYear);
+                    setTitle(data.title);
+                } else {
+                    // Handle unexpected response structure
+                    alert("Unexpected response structure. Please check console for details.");
+                    console.error("Unexpected response structure:", response);
+                }
                 setLoading(false);
             })
             .catch((error) => {
                 setLoading(false);
-                alert(`An error happened. Please check console.`)
-                console.log(error);
-            })
-    }, [])
+                alert("An error occurred while fetching book data. Please check console for details.");
+                console.error("Error fetching book data:", error);
+            });
+    }, [id]);
     const handleEditBook = () => {
         const data = {
             title,
