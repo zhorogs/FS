@@ -35,7 +35,7 @@ const Home = () => {
                 {loading ? (
                     <Spinner />
                 ) : (
-                    
+                    <BooksTable />
                 )}
             </div>
         </div>
