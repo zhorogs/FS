@@ -31,14 +31,14 @@ const BooksCard = ({ books }) => {
                         </h2>
                     </div>
                     <div className='flex justify-between items-center gap-x-2 mt-4 p-4'>
-                        <Link>
-
+                        <Link to={`/books/details/${item._id}`}>
+                            <BsInfoCircle className='text-2xl text-green-800 hover:text-black' />
                         </Link>
-                        <Link>
-
+                        <Link to={`/books/edit/${item._id}`}>
+                            <AiOutlineEdit className='text-2xl text-yellow-600 hover:text-black' />
                         </Link>
-                        <Link>
-
+                        <Link to={`/books/delete/${item._id}`}>
+                            <MdOutlineDelete className='text-2xl text-red-600 hover:text-black' />
                         </Link>
                     </div>
                 </div>
