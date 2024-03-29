@@ -12,6 +12,7 @@ import BooksCard from "../components/home/BooksCard";
 const Home = () => {
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [showType, setShowType] = useState('table');
     useEffect(() => {
         setLoading(true);
         axios
@@ -32,11 +33,8 @@ const Home = () => {
                 <Link to="/books/create">
                     <MdOutlineAddBox className="text-sky-800 text-4xl" />
                 </Link>
-                {loading ? (
-                    <Spinner />
-                ) : (
-                    <BooksTable />
-                )}
+                {loading ? <Spinner /> : <BooksTable books={books} />
+                }
             </div>
         </div>
     );
