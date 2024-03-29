@@ -41,8 +41,8 @@ const Home = () => {
                 <Link to="/books/create">
                     <MdOutlineAddBox className="text-sky-800 text-4xl" />
                 </Link>
-                {loading ? <Spinner /> : <BooksTable books={books} />
-                }
+                {loading ? <Spinner /> : showType === 'table' ? (<BooksTable books={books} />) : (<BooksCard books={books} />)}
+
             </div>
         </div>
     );
