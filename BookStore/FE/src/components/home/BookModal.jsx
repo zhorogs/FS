@@ -27,7 +27,6 @@ const BookModal = ({ book, onClose }) => {
                     </h2>
                 </div>
                 <p className='mt-4'> Anything you want to show.
-
                 </p>
                 <p className='my-2'>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, alias quaerat officiis vel, soluta blanditiis consequuntur quia harum eius tempora consequatur, eligendi facilis? Unde debitis minus distinctio excepturi! Cupiditate, deleniti.
