@@ -10,6 +10,7 @@ import BookModal from './BookModal';
 
 
 const BookSingleCard = ({ book }) => {
+    const [showModal, setShowModal] = useState(false);
     return (
         <div className='border-2 border-gray-500 rounded-lg px-4 py-2 m-4 relative hover:shadow-xl'>
             <div className='flex justify-between items-center gap-x-2 mt-4 p-4'>
