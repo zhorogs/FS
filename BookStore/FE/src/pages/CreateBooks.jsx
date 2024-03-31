@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 
-function CreateBooks() {
+const CreateBooks = () => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [publishYear, setPublishYear] = useState('');
@@ -70,6 +70,6 @@ function CreateBooks() {
             </div>
         </div>
     )
-}
+};
 
 export default CreateBooks
