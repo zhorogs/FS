@@ -13,6 +13,7 @@ function EditBook() {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const { id } = useParams();
+    const { enqueueSnackbar } = useSnackbar();
     useEffect(() => {
         setLoading(true);
         axios.get(`http://localhost:5555/books/${id}`)
@@ -28,10 +29,13 @@ function EditBook() {
                     console.error("Unexpected response structure:", response);
                 }
                 setLoading(false);
+                enqueueSnackbar('Book edited successfully', { variant: 'success' });
+                navigate('/');
             })
             .catch((error) => {
                 setLoading(false);
-                alert("An error occurred while fetching book data. Please check console for details.");
+                //alert("An error occurred while fetching book data. Please check console for details.");
+                enqueueSnackbar('Error', { variant: 'Error' });
                 console.error("Error fetching book data:", error);
             });
     }, [id]);
