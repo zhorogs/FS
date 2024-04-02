@@ -25,7 +25,7 @@ const EditBook = () => {
                     setTitle(data.title);
                 } else {
                     // Handle unexpected response structure
-                    alert("Unexpected response structure. Please check console for details.");
+                    alert('Unexpected response structure. Please check console for details.');
                     console.error("Unexpected response structure:", response);
                 }
                 setLoading(false);
@@ -36,7 +36,7 @@ const EditBook = () => {
                 setLoading(false);
                 //alert("An error occurred while fetching book data. Please check console for details.");
                 enqueueSnackbar('Error', { variant: 'Error' });
-                console.error("Error fetching book data:", error);
+                console.error('Error fetching book data:', error);
             });
     }, [id]);
     const handleEditBook = () => {
