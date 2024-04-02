@@ -5,8 +5,7 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 
-
-function EditBook() {
+const EditBook = () => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [publishYear, setPublishYear] = useState('');
@@ -14,6 +13,7 @@ function EditBook() {
     const navigate = useNavigate();
     const { id } = useParams();
     const { enqueueSnackbar } = useSnackbar();
+
     useEffect(() => {
         setLoading(true);
         axios.get(`http://localhost:5555/books/${id}`)
@@ -98,6 +98,6 @@ function EditBook() {
             </div>
         </div>
     )
-}
+};
 
 export default EditBook

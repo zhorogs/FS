@@ -10,6 +10,7 @@ function DeleteBooks() {
     const navigate = useNavigate();
     const { id } = useParams();
     const { enqueueSnackbar } = useSnackbar();
+
     const handleDeleteBook = () => {
         setLoading(true);
         axios
@@ -43,5 +44,6 @@ function DeleteBooks() {
             </div>
         </div>
     )
-}
+};
+
 export default DeleteBooks;
