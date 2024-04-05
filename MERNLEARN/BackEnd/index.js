@@ -13,6 +13,14 @@ app.get('/getUsers', (req, res) => {
             res.json(result)
         }
     })
+});
+
+app.post('/createUser', async (req, res) => {
+    const user = req.body;
+    const newUser = new UserModal(user);
+    await newUser.save();
+    res.json(user);
+
 })
 
 app.listen(3001, () => {
