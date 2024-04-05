@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const UserModel = require('./models/Users');
 const cors = require('cors');
 
+app.use(cors());
 app.use(express.json());
 
 mongoose.connect('mongodb+srv://zgslavchev:dGJ5Ihk9EIi9sNdN@cluster0.2jj9g8e.mongodb.net/');
