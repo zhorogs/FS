@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const UserModel = require('./models/Users');
 
+app.use(express.json());
+
 mongoose.connect('mongodb+srv://zgslavchev:dGJ5Ihk9EIi9sNdN@cluster0.2jj9g8e.mongodb.net/');
 
 app.get('/getUsers', (req, res) => {
@@ -17,7 +19,7 @@ app.get('/getUsers', (req, res) => {
 
 app.post('/createUser', async (req, res) => {
     const user = req.body;
-    const newUser = new UserModal(user);
+    const newUser = new UserModel(user);
     await newUser.save();
     res.json(user);
 
