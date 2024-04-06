@@ -7,16 +7,21 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 
+app.listen(3001, () => {
+    console.log('Server runs!');
+});
+
 mongoose.connect('mongodb+srv://zgslavchev:dGJ5Ihk9EIi9sNdN@cluster0.2jj9g8e.mongodb.net/');
 
 app.get('/getUsers', (req, res) => {
     UserModel.find({}, (err, result) => {
         if (err) {
-            res.json(err)
+            console.error("Error while fetching users:", err);
+            res.status(500).json({ error: "Internal server error" });
         } else {
-            res.json(result)
+            res.json(result);
         }
-    })
+    });
 });
 
 app.post('/createUser', async (req, res) => {
@@ -24,10 +29,7 @@ app.post('/createUser', async (req, res) => {
     const newUser = new UserModel(user);
     await newUser.save();
     res.json(user);
-
 })
 
-app.listen(3001, () => {
-    console.log('Server runs!');
-});
+
 
