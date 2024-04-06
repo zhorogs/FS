@@ -10,6 +10,10 @@ function App() {
     })
   }, [])
 
+  const createUser = () => {
+    axios.post('')
+  }
+
   return (
     <div className="App">
       <div className='usersDisplay'>
@@ -23,7 +27,16 @@ function App() {
           )
         })}
       </div>
-    </div>
+      <div>
+        <input type='text' placeholder=' Name...'>
+        </input>
+        <input type='number' placeholder=' Age...'>
+        </input>
+        <input type='text' placeholder=' Username...'>
+        </input>
+        <button> Create User </button>
+      </div>
+    </div >
   );
 }
 
