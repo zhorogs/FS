@@ -5,7 +5,7 @@ import axios from 'axios';
 function App() {
   const [listOfUsers, setlistOfUsers] = useState([]);
   useEffect(() => {
-    axios.get('https://localhost:3001/getUsers').then((response) => {
+    axios.get('http://localhost:3001/getUsers').then((response) => {
       setlistOfUsers(response.data)
     })
   }, [])
