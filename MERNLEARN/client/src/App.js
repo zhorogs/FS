@@ -11,7 +11,9 @@ function App() {
   }, [])
 
   const createUser = () => {
-    axios.post('')
+    axios.post('http://localhost:3001/createUser', { name: '', age: 0, username: '' }).then((response) => {
+      alert('User created.')
+    })
   }
 
   return (
@@ -34,7 +36,7 @@ function App() {
         </input>
         <input type='text' placeholder=' Username...'>
         </input>
-        <button> Create User </button>
+        <button onClick={createUser}> Create User </button>
       </div>
     </div >
   );
